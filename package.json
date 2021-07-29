@@ -1,0 +1,37 @@
+{
+  "name": "aplikasi-servis-mobil-ta-frezy",
+  "main": "main.js",
+  "version": "1.0.0",
+  "description": "Aplikasi Servis Mobil TA Frezy",
+  "author": "Arbi Syarifudin <arbisyarifudin@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "tns platform add android",
+    "start": "tns run android --emulator",
+    "start-geny": "tns run android --emulator --geny=\"Samsung Galaxy S7\"",
+    "doctor": "tns doctor"
+  },
+  "dependencies": {
+    "@nativescript/core": "^7.0.3",
+    "@nativescript/datetimepicker": "^2.1.5",
+    "@nativescript/theme": "^2.3.3",
+    "axios": "^0.21.1",
+    "moment": "^2.29.1",
+    "nativescript-drop-down": "^6.0.0",
+    "nativescript-vue": "^2.8.1",
+    "nativescript-vue-fonticon": "^1.0.3",
+    "nativescript-vue-navigator": "^1.2.0",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "@nativescript/android": "8.0.0",
+    "@nativescript/webpack": "^3.0.4",
+    "babel-loader": "^8.1.0",
+    "nativescript-vue-template-compiler": "^2.8.1",
+    "nativescript-worker-loader": "~0.12.1",
+    "sass": "^1.26.10",
+    "vue-loader": "^15.9.3"
+  }
+}
