@@ -1,0 +1,272 @@
+.fa {
+  font-family: "Font Awesome 5 Free", "fa-regular-400";
+  font-weight: 400;
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands", "fa-brands-400";
+  font-weight: 400;
+}
+
+.far {
+  font-family: "Font Awesome 5 Free", "fa-regular-400";
+  font-weight: 400;
+}
+
+.fas {
+  font-family: "Font Awesome 5 Free", "fa-solid-900";
+  font-weight: 900;
+}
+
+.mr-1 {
+  margin-right: 10;
+}
+
+.mr-2 {
+  margin-right: 20;
+}
+
+.ml-1 {
+  margin-left: 10;
+}
+
+.ml-2 {
+  margin-left: 20;
+}
+
+.mt-1 {
+  margin-top: 10;
+}
+
+.mt-2 {
+  margin-top: 20;
+}
+
+.mb-1 {
+  margin-bottom: 10;
+}
+
+.mb-2 {
+  margin-bottom: 20;
+}
+
+$main-color: #e6232a;
+$active-main-color: #d31a20;
+
+.text-main {
+  color: $main-color;
+}
+
+.btn-sm {
+  background-color: white;
+  border: 2px solid #ddd;
+  box-shadow: 0 0 5px 1px #ddd;
+  border-radius: 10px;
+  padding: 5px !important;
+}
+
+.bg-main {
+  background-color: $main-color;
+}
+
+.btn-main {
+  background-color: $main-color;
+  color: #fff;
+}
+
+.btn-main:active {
+  background-color: $active-main-color;
+  color: #fff;
+}
+
+.btn-main:disabled {
+  background-color: #a4a5a4;
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  border-color: #fff;
+  border-width: 2px;
+  color: #fff;
+  font-weight: 500;
+}
+
+// page
+ActionBar {
+  background-color: #53ba82;
+  color: #ffffff;
+}
+
+// auth
+
+.login-logo {
+  width: 150;
+  // margin-bottom: 50;
+}
+
+.login-page {
+  flex-direction: column;
+  align-items: center;
+}
+
+.login-form {
+  width: 100%;
+  padding-left: 30;
+  padding-right: 30;
+  flex-grow: 2;
+  vertical-align: middle;
+}
+
+.login-btn {
+  margin-top: 20;
+}
+
+.form-group {
+  margin-bottom: 15;
+}
+
+.form-control {
+  padding: 10;
+  placeholder-color: #afafaf;
+  border-bottom-color: #e0e0e0;
+}
+
+.login-btn {
+  background-color: #53ba82;
+  color: #fff;
+}
+
+.login-btn:disabled {
+  background-color: #a4a5a4;
+}
+
+.login-text--bottom {
+  padding-bottom: 30;
+}
+
+DropDown.form-control {
+  placeholder-color: #afafaf;
+  border-style: solid;
+  border-bottom-color: #e0e0e0;
+  border-bottom-width: 1;
+  margin-left: 18;
+  margin-right: 18;
+  padding: 1 5 5;
+}
+
+// page
+
+.page-header {
+  /* background-color: #53ba82; */
+  color: white;
+  padding: 20 20 20 20;
+}
+
+.page-title {
+  font-size: 25;
+  color: white;
+  font-weight: 500;
+}
+
+.page-subtitle {
+  font-size: 18;
+  color: white;
+}
+
+.card-group {
+  padding: 20 10 30 10;
+}
+
+.card-title {
+  font-size: 18;
+}
+
+.card {
+  margin: 10;
+  padding: 20;
+  border-width: 1;
+  border-color: #ddd;
+  border-style: solid;
+  box-shadow: 0 0 5 1 #ddd;
+  border-radius: 10;
+}
+
+.fas {
+  /* color: #53ba82; */
+  /* font-size: 35; */
+  // margin-bottom: 10;
+}
+
+.btn-logout {
+  background-color: #53ba82;
+  color: white;
+}
+
+.list-view {
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: #58585899;
+}
+
+.list-view .list-item {
+  font-size: 18px;
+  padding: 20 20;
+}
+
+.list-view .package-item--about {
+  font-size: 14px;
+  color: #818181;
+}
+
+.package-about--text {
+  font-size: 14px;
+  color: #818181;
+}
+
+.list-item.product-item {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.product-item--name {
+  // font-weight: 500;
+  font-size: 15px;
+}
+
+.product-item--price {
+  font-size: 14px;
+}
+
+.product-item--category {
+  font-size: 12px;
+  color: #818181;
+}
+
+.product-item--about {
+  color: #818181;
+}
+
+.reservation-status {
+  font-size: 12px;
+}
+
+.badge {
+  padding: 10px 20px;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+.badge-success {
+  background-color: green;
+  color: white;
+}
+
+.badge-info {
+  background-color: skyblue;
+}
+
+.badge-warning {
+  background-color: orange;
+  color: white;
+}
