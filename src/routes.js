@@ -5,6 +5,7 @@ import Services from "./components/Services";
 import ServiceDetail from "./components/ServiceDetail";
 import Reservations from "./components/Reservations";
 import ReservationDetail from "./components/ReservationDetail";
+import ReservationEdit from "./components/ReservationEdit";
 import Vehicles from "./components/Vehicles";
 import VehicleDetail from "./components/VehicleDetail";
 import VehicleAdd from "./components/VehicleAdd";
@@ -39,6 +40,10 @@ export const routes = {
   },
   "/reservation": {
     component: ReservationDetail,
+    meta: { needsAuth: true },
+  },
+  "/reservation-edit": {
+    component: ReservationEdit,
     meta: { needsAuth: true },
   },
   "/vehicles": {

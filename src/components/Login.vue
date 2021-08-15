@@ -31,6 +31,18 @@
             <Span :text="loading ? 'Memproses...' : 'Masuk'" />
           </FormattedString>
         </Button>
+        <!-- <StackLayout class="text-center">
+          <Label
+            class="login-text--bottom"
+            @tap="$navigator.navigate('/forgot')"
+          >
+            <FormattedString>
+              <Span text="Lupa password Anda? " />
+              <Span text="Reset" fontWeight="bold" />
+            </FormattedString>
+          </Label>
+        </StackLayout> -->
+
         <!-- <ActivityIndicator
           rowSpan="3"
           :busy="loading"

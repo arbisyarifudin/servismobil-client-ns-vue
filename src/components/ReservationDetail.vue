@@ -9,7 +9,7 @@
           v-if="detailReserv && !loading"
         >
           <Label
-          v-if="detailReserv.id"
+            v-if="detailReserv.id"
             textWrap="true"
             :text="'ID #' + detailReserv.id"
             class="page-subtitle"
@@ -33,6 +33,45 @@
       </StackLayout>
       <ScrollView>
         <StackLayout class="page-body card" v-if="detailReserv.package">
+          <Label
+            v-if="haminsatu"
+            text="Konfirmasi"
+            class="h3"
+            fontWeight="500"
+            textWrap="true"
+          >
+            <FormattedString>
+              <Span class="h3">Konfirmasi: </Span>
+              <Span
+                fontWeight="500"
+                v-if="detailReserv.attendance_confirmation == 'Not Present'"
+                >Tidak Jadi Datang</Span
+              >
+              <Span fontWeight="500" v-else>Akan Datang</Span>
+            </FormattedString>
+          </Label>
+          <FlexboxLayout flexDirection="" v-if="haminsatu" class="mb-2">
+            <Label
+              textWrap="true"
+              class="mr-2 btn btn-sm"
+              @tap="confirmAttend(detailReserv.id, 'Present')"
+            >
+              <FormattedString>
+                <FIcon name="fa-check" size="20" class="fas text-main" />
+                <Span>Datang</Span>
+              </FormattedString>
+            </Label>
+            <Label
+              textWrap="true"
+              @tap="confirmAttend(detailReserv.id, 'Not Present')"
+              class="btn btn-sm"
+            >
+              <FormattedString>
+                <FIcon name="fa-times" size="20" class="fas text-main" />
+                <Span>Tidak Jadi</Span>
+              </FormattedString>
+            </Label>
+          </FlexboxLayout>
           <Label class="h3" fontWeight="500" text="Keluhan :"></Label>
           <Label
             class="package-about--text mb-2"
@@ -268,6 +307,11 @@ export default {
       //   return new ValueList(vehicles);
     },
   },
+  computed: {
+    haminsatu() {
+      return true;
+    },
+  },
   mounted() {
     this.getDetail();
     console.log(this.user);
@@ -394,6 +438,93 @@ export default {
           this.loading = false;
           this.catchError(error);
         });
+    },
+    confirmAttend(id, status) {
+      const token = this.$appSettings.getString("token");
+      if (status == "Present") {
+        confirm({
+          title: "Konfirmasi Akan Datang",
+          message: "Apakah Anda Yakin?",
+          okButtonText: "Ya",
+          cancelButtonText: "Kembali",
+        }).then((result) => {
+          if (result) {
+            let dataUpdate = {
+              attendance_confirmation: "Present",
+            };
+            this.$axios
+              .put("/reservation/" + id, dataUpdate, {
+                headers: {
+                  Authorization: "Bearer " + token,
+                  "Content-type": "application/json",
+                },
+              })
+              .then(({ data }) => {
+                console.log(data);
+                if (data && data.success) {
+                  this.detailReserv.attendance_confirmation = "Present";
+                  alert({
+                    title: "Sukses",
+                    message: "Konfirmasi berhasil dikirimkan!",
+                    okButtonText: "OK",
+                  });
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+                this.catchError(error);
+                //   if (error.response.status == 401) {
+                //     this.$store.commit("clearAuth", {});
+                //     this.$appSettings.setString("token", null);
+                //     this.$navigator.navigate("/login", { clearHistory: true });
+                //   }
+              });
+          }
+        });
+      } else {
+        prompt({
+          title: "Konfirmasi Tidak Datang",
+          message: "Apakah Anda Yakin? Mohon tuliskan alasan Anda:",
+          okButtonText: "Konfirmasi",
+          cancelButtonText: "Kembali",
+          defaultText: "",
+        }).then((result) => {
+          console.log(`Dialog result: ${result.result}, text: ${result.text}`);
+          if (result.result) {
+            let dataUpdate = {
+              attendance_confirmation: "Not Present",
+              attendance_message: result.text,
+            };
+            this.$axios
+              .put("/reservation/" + id, dataUpdate, {
+                headers: {
+                  Authorization: "Bearer " + token,
+                  "Content-type": "application/json",
+                },
+              })
+              .then(({ data }) => {
+                console.log(data);
+                if (data && data.success) {
+                  this.detailReserv.attendance_confirmation = "Not Present";
+                  alert({
+                    title: "Sukses",
+                    message: "Konfirmasi berhasil dikirimkan!",
+                    okButtonText: "OK",
+                  });
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+                this.catchError(error);
+                //   if (error.response.status == 401) {
+                //     this.$store.commit("clearAuth", {});
+                //     this.$appSettings.setString("token", null);
+                //     this.$navigator.navigate("/login", { clearHistory: true });
+                //   }
+              });
+          }
+        });
+      }
     },
   },
 };

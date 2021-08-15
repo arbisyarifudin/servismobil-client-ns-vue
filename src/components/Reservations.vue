@@ -126,6 +126,23 @@
                   class="package-item--about"
                   textWrap="true"
                 />
+                <Label
+                  v-if="haminsatu"
+                  fontWeight="500"
+                  text="Konfirmasi kedatangan"
+                  class="package-item--about"
+                  textWrap="true"
+                >
+                  <FormattedString>
+                    <Span>Konfirmasi kedatangan: </Span>
+                    <Span
+                      fontWeight="500"
+                      v-if="item.attendance_confirmation == 'Not Present'"
+                      >Tidak Jadi Datang</Span
+                    >
+                    <Span fontWeight="500" v-else>Akan Datang</Span>
+                  </FormattedString>
+                </Label>
               </StackLayout>
             </FlexboxLayout>
           </StackLayout>
@@ -147,6 +164,11 @@ export default {
   },
   mounted() {
     this.getList();
+  },
+  computed: {
+    haminsatu() {
+      return true;
+    },
   },
   methods: {
     badgeColor(status) {
@@ -190,6 +212,7 @@ export default {
       // console.log("item tapped", item.name);
       this.$navigator.navigate("/reservation", { props: { id: item.id } });
     },
+
   },
 };
 </script>

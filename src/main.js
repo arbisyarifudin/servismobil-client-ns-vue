@@ -29,7 +29,8 @@ moment.locale("id");
 Vue.prototype.moment = moment;
 
 Vue.prototype.$axios = axios;
-Vue.prototype.$axios.defaults.baseURL = "https://servisdenso.pandalas.id/api/";
+// Vue.prototype.$axios.defaults.baseURL = "https://servisdenso.pandalas.id/api/";
+Vue.prototype.$axios.defaults.baseURL = "http://192.168.123.91:8000/api/";
 // Vue.prototype.$axios.defaults.baseURL =
 //   TNS_ENV == "production"
 //     ? "http://servisdenso.pandalas.id/api/"
