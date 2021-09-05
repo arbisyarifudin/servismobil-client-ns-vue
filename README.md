@@ -1,23 +1,2 @@
-# NativeScript-Vue Application
-
-> A native application built with NativeScript-Vue
-
-## Usage
-
-``` bash
-# Install dependencies
-npm install
-
-# Preview on device
-tns preview
-
-# Build, watch for changes and run the application
-tns run
-
-# Build, watch for changes and debug the application
-tns debug <platform>
-
-# Build for production
-tns build <platform> --env.production
-
-```
+## Tentang
+Project ini dibuat sebagai _client-app_ untuk aplikasi android **Reservasi Servis Mobil** yang mengkonsumsi API dari backend yang terpisah. Dibangun dengan **Nativescript-Vue**.
